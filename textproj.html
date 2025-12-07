@@ -1,0 +1,133 @@
+<!--
+Taryn
+CS 110
+Project 9
+
+Text analysis project page (SpaCy, sherlock holmes)
+
+https://colab.research.google.com/drive/1K20D9eVl4SoyzONHPj6sQiaQ3YVhDsjt?usp=sharing
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Analysis Project Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <div style="max-width: 850px; margin: auto; padding: 20px;"></div>
+<header>
+    <h1 style="text-align: center">Text Analysis Project</h1>
+    <hr>
+    <a href="https://colab.research.google.com/drive/1K20D9eVl4SoyzONHPj6sQiaQ3YVhDsjt?usp=sharing">Colab Notebook</a>
+    |
+    <a href="Project5.html">Colab HTML</a> 
+</header>
+
+ <section>
+    <h2 style="text-align: center"> Project Overview</h2>
+    <p>
+        For this project I used SpaCy to analyze a block of text from a Sherlock Holmes book.
+        I explored using pre-processing techniques to collect meaningful data about the text.
+        For example, finding the top 15 most frequently meaningful words used.
+    </p>
+  </section>
+
+  <section>
+    <h2 style="text-align: center">Text Analysis Example</h2>
+    <p>
+        Below is a block of code used to print the top 15 most frequent meaningful words. 
+        This function was called after doing some pre-processing and taking out common useless words.
+    </p>
+    <h3> Code: </h3>
+    <div class="code-container">
+        <code>
+          <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+            <div class="jp-Cell-inputWrapper" tabindex="0">
+            <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+            </div>
+            <div class="jp-InputArea jp-Cell-inputArea">
+            <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+            <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+            <div class="cm-editor cm-s-jupyter">
+            <div class="highlight hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">operator</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="nf">print_top_words</span><span class="p">(</span><span class="n">word_freq_dict</span><span class="p">,</span> <span class="n">num_words</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+                <span class="n">sorted_word_freq</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">word_freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+                <span class="n">top_words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sorted_word_freq</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="n">num_words</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Top </span><span class="si">{</span><span class="n">num_words</span><span class="si">}</span><span class="s2"> most frequent meaningful words:"</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">top_words</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="n">print_top_words</span><span class="p">(</span><span class="n">create_word_frequency_dict</span><span class="p">(</span><span class="n">meaningful_words</span><span class="p">))</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="jp-Cell-outputWrapper">
+            <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+            </div>
+            <div class="jp-OutputArea jp-Cell-outputArea">
+            <div class="jp-OutputArea-child">
+            <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+            <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+            <pre>Top 15 most frequent meaningful words:
+            say: 32
+            holme: 30
+            watson: 28
+            man: 26
+            amberley: 24
+            come: 18
+            little: 16
+            look: 14
+            room: 14
+            house: 13
+            inspector: 13
+            door: 12
+            wife: 12
+            know: 12
+            holmes: 12
+            </pre>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>  
+    </code>
+    </div>
+    <p>
+        <i>The output of this function gives us the top 15 words which gives us an idea
+            of what the text is about. For example, a man and a wife is mentioned often in the text
+            which would make me think that Watson and Holmes are investigating something about them in a house.  </i>
+    </p>
+  </section>
+
+  <section>
+    <h2 style="text-align: center;">Final Result</h2>
+    <p>
+        By using SpaCy and looking at the top 15 most frequently meaningful words used it 
+        can show us important things about the story. In order to get these words, pre-processing 
+        is necessary because it can filter out common words that don't have much meaning such as 
+        "a", "the" and "of."
+
+    </p>
+
+  </section>
+
+<footer>
+    <p style="text-align: center;">
+      Last updated: December 7, 2025 | Background image from:
+      <a href="https://static.vecteezy.com/system/resources/previews/002/176/171/original/cute-floral-pattern-background-simple-pattern-design-template-vector.jpg">Vecteezy</a>
+       | 
+      <a href="index.html" target="_blank" title="Taryn's Profile Page"> Home page</a>
+
+    </p>
+  </footer>
+
+</body>
+</html>
